@@ -6,12 +6,12 @@
     <remap from="front/scan"    to="scan" />
 
     <!-- invloking husky playpen with gui options -->
-    <arg name="gazebo_gui"              default="false" />
+    <!-- <arg name="gazebo_gui"              default="false" /> -->
     <arg name="world"                   default="husky_playpen" />
-    <arg name="enable_joystick"         default="true" />
+    <!-- <arg name="enable_joystick"         default="true" /> -->
     <include file="$(find husky_gazebo)/launch/$(arg world).launch">
-        <arg name="gui"         value="$(arg gazebo_gui)" />
-        <arg name="joystick"    value="$(arg enable_joystick)" />
+        <!-- <arg name="gui"         value="$(arg gazebo_gui)" />
+        <arg name="joystick"    value="$(arg enable_joystick)" /> -->
     </include>
 
     <!-- invloking the visualization package -->
