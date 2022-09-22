@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <!-- setting the environment variable to enable laser scanner -->
+    <!-- <env name="HUSKY_LMS1XX_ENABLED" value="$(optenv HUSKY_LMS1XX_ENABLED 1)" /> -->
+    <remap from="front/scan"    to="scan" />
+
+    <!-- invloking husky playpen with gui options -->
+    <arg name="gazebo_gui"              default="false" />
+    <arg name="world"                   default="husky_playpen" />
+    <arg name="enable_joystick"         default="true" />
+    <include file="$(find husky_gazebo)/launch/$(arg world).launch">
+        <arg name="gui"         value="$(arg gazebo_gui)" />
+        <arg name="joystick"    value="$(arg enable_joystick)" />
+    </include>
+
+    <!-- invloking the visualization package -->
+    <arg name="view_rviz"       default="true" />
+    <group if="$(arg view_rviz)">
+        <include file="$(find husky_viz)/launch/view_robot.launch" />
+    </group>
+
+    <!-- invoking the husky demo launch file with modified scan topic name -->
+    <!-- <arg name="scan_topic_name" default="scan" />
+    <include file="$(find husky_navigation)/launch/amcl_demo.launch">
+        <arg name="scan_topic_name" value="$(arg scan_topic_name)" />
+    </include> -->
+</launch>
