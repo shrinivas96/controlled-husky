@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/shrini/workspace/dslab/huskyOP/devel/setup.bash
+source ./devel/setup.bash
 export HUSKY_LMS1XX_ENABLED=1
 echo "HUSKY_LMS1XX_ENABLED"
 
